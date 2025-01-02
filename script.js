@@ -5,7 +5,41 @@ let exampleBouquet3 = ["lilies","tulips","daisies"]; //should return beautiful b
 let exampleBouquet4 = ["tulips","daisies"]; //should return add more
 let exampleBouquet5 = ["lilies","tulips","daisies", "carnations"]; //should return something in there I don't like
 
-let correctBouquet = ["Tulips","Lilies","Daisies"];
+function generateRandomBouquet() {
+    const flowerPool = [
+        "Sunflowers",
+        "Peonies",
+        "Roses",
+        "Daisies",
+        "Tulips",
+        "Lilies",
+        "Carnations"
+    ];
+
+    // Random length between 3 and 4
+    const bouquetLength = Math.floor(Math.random() * 2) + 3;
+
+    const randomBouquet = [];
+    const usedIndexes = new Set(); // To prevent duplicate flowers
+
+    while (randomBouquet.length < bouquetLength) {
+        // Generate a random index from the flower pool
+        const randomIndex = Math.floor(Math.random() * flowerPool.length);
+
+        // Add the flower if it hasn't already been picked
+        if (!usedIndexes.has(randomIndex)) {
+            randomBouquet.push(flowerPool[randomIndex]);
+            usedIndexes.add(randomIndex);
+        }
+    }
+
+    return randomBouquet;
+}
+
+// let correctBouquet = ["Tulips","Lilies","Daisies"];
+
+let correctBouquet = generateRandomBouquet();
+console.log("Generated Bouquet:", newBouquet);
 
 function toggleFlower(flower) {
     const index = myBouquet.indexOf(flower);
