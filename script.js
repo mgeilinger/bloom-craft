@@ -5,28 +5,7 @@ let exampleBouquet3 = ["lilies","tulips","daisies"]; //should return beautiful b
 let exampleBouquet4 = ["tulips","daisies"]; //should return add more
 let exampleBouquet5 = ["lilies","tulips","daisies", "carnations"]; //should return something in there I don't like
 
-let correctBouquet = ["tulips","lilies","daisies"];
-
-function popUp () {
-    alert("YES!");
-}
-
-// function checkBouquet() {
-//     if(JSON.stringify(myBouquet) === JSON.stringify(correctBouquet)) {
-//         console.log("What a beautiful bouquet!");
-//     }
-//     // check if there's anything wrong in there
-//     for (var i = 0; i < arrayLength; i++) {
-//         console.log(myStringArray[i]);
-//     }
-//     // loop through the bouquet, and if you find anything that doesn't appear in the correct boquuet, console log there's something there I don't like
-//     // else if() {
-//     //     console.log("There's something in there I don't like!");
-//     // }
-//     else {
-//         console.log("Looking good but maybe add some more flowers!");
-//     }
-// }
+let correctBouquet = ["Tulips","Lilies","Daisies"];
 
 function toggleFlower(flower) {
     const index = myBouquet.indexOf(flower);
@@ -62,11 +41,11 @@ function updateBouquetDisplay() {
     });
 }
 
-function checkMistakeTest(bouquet) {
-    for (let i = 0; i < bouquet.length; i++) {
+function checkMistake() {
+    for (let i = 0; i < myBouquet.length; i++) {
         let found = false;
         for (let j = 0; j < correctBouquet.length; j++) {
-            if (bouquet[i] === correctBouquet[j]) {
+            if (myBouquet[i] === correctBouquet[j]) {
                 found = true;
                 break;
             }
@@ -78,33 +57,31 @@ function checkMistakeTest(bouquet) {
     return false; // No mistakes
 }
 
-function checkMissingFlowers(bouquet) {
+function checkMissingFlowers() {
     for (let i = 0; i < correctBouquet.length; i++) {
-        if (!bouquet.includes(correctBouquet[i])) {
+        if (!myBouquet.includes(correctBouquet[i])) {
             return true; // Missing a flower
         }
     }
     return false; // No missing flowers
 }
 
-function checkBouquetTest(bouquet) {
-    const mistake = checkMistakeTest(bouquet);
-    const missingFlowers = checkMissingFlowers(bouquet);
+function checkBouquet() {
+    const mistake = checkMistake(myBouquet);
+    const missingFlowers = checkMissingFlowers(myBouquet);
 
     // Compare the bouquet to the correct bouquet
-    if (JSON.stringify(bouquet.slice().sort()) === JSON.stringify(correctBouquet.slice().sort())) {
+    if (JSON.stringify(myBouquet.slice().sort()) === JSON.stringify(correctBouquet.slice().sort())) {
         console.log("What a beautiful bouquet!");
+        alert("What a beautiful bouquet!");
     } else if (mistake) {
         console.log("There's something there I don't like!");
+        alert("There's something there I don't like!");
     } else if (missingFlowers) {
         console.log("Looks good but could use more flowers!");
+        alert("Looks good but could use more flowers!");
     } else {
         console.log("This looks interesting but isn't quite right!");
+        alert("This looks interesting but isn't quite right!");
     }
 }
-
-checkBouquetTest(exampleBouquet1);
-checkBouquetTest(exampleBouquet2);
-checkBouquetTest(exampleBouquet3);
-checkBouquetTest(exampleBouquet4);
-checkBouquetTest(exampleBouquet5);
