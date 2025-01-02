@@ -7,6 +7,10 @@ let exampleBouquet5 = ["lilies","tulips","daisies", "carnations"]; //should retu
 
 let correctBouquet = ["tulips","lilies","daisies"];
 
+function popUp () {
+    alert("YES!");
+}
+
 // function checkBouquet() {
 //     if(JSON.stringify(myBouquet) === JSON.stringify(correctBouquet)) {
 //         console.log("What a beautiful bouquet!");
@@ -23,6 +27,40 @@ let correctBouquet = ["tulips","lilies","daisies"];
 //         console.log("Looking good but maybe add some more flowers!");
 //     }
 // }
+
+function toggleFlower(flower) {
+    const index = myBouquet.indexOf(flower);
+
+    if (index === -1) {
+        // Flower is not in the bouquet; add it
+        myBouquet.push(flower);
+        console.log("Added ${flower} to the bouquet!");
+    } else {
+        // Flower is already in the bouquet; remove it
+        myBouquet.splice(index, 1);
+        console.log("Removed ${flower} from the bouquet!");
+    }
+
+    // Update the displayed bouquet
+    updateBouquetDisplay();
+
+    console.log("Current bouquet:", myBouquet);
+}
+
+// Function to update the displayed bouquet
+function updateBouquetDisplay() {
+    const bouquetList = document.getElementById("bouquet-list");
+
+    // Clear the current display
+    bouquetList.innerHTML = "";
+
+    // Add each flower in the bouquet to the display
+    myBouquet.forEach((flower) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = flower;
+        bouquetList.appendChild(listItem);
+    });
+}
 
 function checkMistakeTest(bouquet) {
     for (let i = 0; i < bouquet.length; i++) {

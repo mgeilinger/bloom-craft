@@ -7,17 +7,19 @@
     <title>Flower Selector</title>
 </head>
 <body>
-    <h1>Choose Your Flower</h1>
+    <h1>Choose Your Flowers</h1>
     <div class="button-container">
-        <button onclick="selectFlower('Sunflowers')">Sunflowers</button>
-        <button onclick="selectFlower('Peonies')">Peonies</button>
-        <button onclick="selectFlower('Roses')">Roses</button>
-        <button onclick="selectFlower('Daisies')">Daisies</button>
-        <button onclick="selectFlower('Tulips')">Tulips</button>
-        <button onclick="selectFlower('Lilies')">Lilies</button>
-        <button onclick="selectFlower('Carnations')">Carnations</button>
+        <button onclick="toggleFlower('Sunflowers')">Sunflowers</button>
+        <button onclick="toggleFlower('Peonies')">Peonies</button>
+        <button onclick="toggleFlower('Roses')">Roses</button>
+        <button onclick="toggleFlower('Daisies')">Daisies</button>
+        <button onclick="toggleFlower('Tulips')">Tulips</button>
+        <button onclick="toggleFlower('Lilies')">Lilies</button>
+        <button onclick="toggleFlower('Carnations')">Carnations</button>
     </div>
-    <p id="output" style="margin-top: 20px; font-weight: bold;"></p>
+    <button id="submit-button" onclick="popUp()">SUBMIT</button>
+    <h2>Your Bouquet:</h2>
+    <ul id="bouquet-list"></ul>
 </body>
 <script src="script.js"></script>
 </html>
