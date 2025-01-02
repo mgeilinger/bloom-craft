@@ -91,31 +91,17 @@ function checkMistake() {
     return false; // No mistakes
 }
 
-function checkMissingFlowers() {
-    for (let i = 0; i < correctBouquet.length; i++) {
-        if (!myBouquet.includes(correctBouquet[i])) {
-            return true; // Missing a flower
-        }
-    }
-    return false; // No missing flowers
-}
-
 function checkBouquet() {
     const mistake = checkMistake(myBouquet);
-    const missingFlowers = checkMissingFlowers(myBouquet);
 
-    // Compare the bouquet to the correct bouquet
     if (JSON.stringify(myBouquet.slice().sort()) === JSON.stringify(correctBouquet.slice().sort())) {
         console.log("What a beautiful bouquet!");
         alert("What a beautiful bouquet!");
     } else if (mistake) {
         console.log("There's something there I don't like!");
         alert("There's something there I don't like!");
-    } else if (missingFlowers) {
+    } else {
         console.log("Looks good but could use more flowers!");
         alert("Looks good but could use more flowers!");
-    } else {
-        console.log("This looks interesting but isn't quite right!");
-        alert("This looks interesting but isn't quite right!");
     }
 }
